@@ -28,6 +28,11 @@
             var rect = canvas.getBoundingClientRect();
             var posx = event.clientX - rect.left;
             var posy = event.clientY - rect.top;
+            ctx.fillStyle = randColor();
+            ctx.beginPath();
+
+            ctx.fillRect(0, 0, 600, 400)
+            ctx.fill();
 
             ctx.fillStyle = randColor() + "33";
             ctx.beginPath();
@@ -40,11 +45,8 @@
             ctx.arc(posx,posy, 50, 0, Math.PI * 2);
             ctx.stroke();
 
-            ctx.fillStyle = randColor() + "33";
-            ctx.beginPath();
-            ctx.rect(posx,posy);
-            ctx.fillRect(350, 300);
-            ctx.randColor(rect) + "33"
+            
+            
 
         }
     </script>
