@@ -8,26 +8,81 @@
 </head>
 <body>
     <h1>Drawing Program</h1>
-    <canvas id="imgCanvas" width="600" height="400" onclick="draw(event)"></canvas>
+    <canvas id="imgCanvas" width="600" height="400" onclick="draw(event)" ></canvas>
 
     <script>
+<<<<<<< HEAD
         
+=======
+        function randColor() {
+            var r = Math.round(Math.random() * 240 + 16);
+            var g = Math.round(Math.random() * 240 + 16);
+            var b = Math.round(Math.random() * 240 + 16);
+
+            var color = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+
+            return color;
+        }
+>>>>>>> branch_with_ChatGPT
 
         function draw(event) {
-            var canvas = document.getElementById("imgCanvas");
-            var ctx = canvas.getContext("2d");
-            var rect = canvas.getBoundingClientRect();
-            var posx = event.clientX - rect.left;
-            var posy = event.clientY - rect.top;
+            const canvas = document.getElementById('imgCanvas');
+            const ctx = canvas.getContext('2d');
 
+<<<<<<< HEAD
             ctx.fillStyle = "#000000";
             ctx.beginPath();
             ctx.arc(posx,posy, 50, 0, Math.PI * 2);
             ctx.fill();
+=======
+            const x = event.clientX - canvas.offsetLeft;
+            const y = event.clientY - canvas.offsetTop;
+>>>>>>> branch_with_ChatGPT
 
+            if (event.type === 'click' && event.target.tagName === 'CANVAS') {
+                // Малюємо спіраль
+                const size = 5;
+                const startAngle = 0;
+                const endAngle = 10 * Math.PI;
+                const step = 0.05;
+                const color = randColor();
+                drawSpiral(x, y, size, startAngle, endAngle, step, color);
+            } else {
+                // Малюємо коло
+                const radius = 10;
+                const color = randColor();
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
 
+<<<<<<< HEAD
+=======
+        function drawSpiral(x, y, size, startAngle, endAngle, step, color) {
+            const canvas = document.getElementById('imgCanvas');
+            const ctx = canvas.getContext('2d');
+>>>>>>> branch_with_ChatGPT
 
+            ctx.fillStyle = color;
+
+            let angle = startAngle;
+            let radius = 0;
+
+            while (angle < endAngle) {
+                const newX = x + radius * Math.cos(angle);
+                const newY = y + radius * Math.sin(angle);
+
+                ctx.beginPath();
+                ctx.arc(newX, newY, size, 0, 2 * Math.PI);
+                ctx.fill();
+
+                angle += step;
+                radius += step;
+            }
         }
     </script>
 </body>
+
 </html>
