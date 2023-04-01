@@ -23,18 +23,18 @@
 
 
         function drawCircle(x, y, radius, color) {
-  // Отримуємо елемент canvas
-  const canvas = document.getElementById('myCanvas');
-  // Отримуємо контекст для малювання на Canvas
-  const ctx = canvas.getContext('2d');
+    // Отримуємо елемент canvas
+            const canvas = document.getElementById('myCanvas');
+    // Отримуємо контекст для малювання на Canvas
+            const ctx = canvas.getContext('2d');
 
   // Малюємо коло
-  ctx.beginPath();
-  ctx.arc(x, y, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = color;
-  ctx.fill();
-  drawCircle(50, 50, 30, 'red');
-}
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+            drawCircle(50, 50, 30, 'red');
+        }
             
             
 
