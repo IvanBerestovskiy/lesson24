@@ -22,33 +22,23 @@
         }
 
 
-        function draw(event) {
-            var canvas = document.getElementById("imgCanvas");
-            var ctx = canvas.getContext("2d");
-            var rect = canvas.getBoundingClientRect();
-            var posx = event.clientX - rect.left;
-            var posy = event.clientY - rect.top;
-            ctx.fillStyle = randColor();
-            ctx.beginPath();
+        function drawCircle(x, y, radius, color) {
+  // Отримуємо елемент canvas
+  const canvas = document.getElementById('myCanvas');
+  // Отримуємо контекст для малювання на Canvas
+  const ctx = canvas.getContext('2d');
 
-            ctx.fillRect(0, 0, 600, 400)
-            ctx.fill();
-
-            ctx.fillStyle = randColor() + "33";
-            ctx.beginPath();
-            ctx.arc(posx,posy, 50, 0, Math.PI * 2);
-            ctx.fill()
-
-
-            ctx.strokeStyle = "#000000";
-            ctx.beginPath();
-            ctx.arc(posx,posy, 50, 0, Math.PI * 2);
-            ctx.stroke();
-
+  // Малюємо коло
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = color;
+  ctx.fill();
+  drawCircle(50, 50, 30, 'red');
+}
             
             
 
-        }
+        
     </script>
 </body>
 </html>
